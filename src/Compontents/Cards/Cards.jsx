@@ -122,7 +122,7 @@ export default function Cards() {
           ))}
           <Link
             to={"/buy"}
-            className="button border-bottom d-flex justify-content-center pb-5"
+            className="button  d-flex justify-content-center pb-5"
           >
             <button className="btn view rounded-2 bolder px-4 btn-lg">
               View More
