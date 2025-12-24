@@ -1,0 +1,44 @@
+.property-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.property-card .badge {
+  font-size: 14px;        
+  padding: 8px 13px;     
+}
+
+.card-body p {
+  margin-bottom: 5px;     
+}
+
+@media (max-width: 768px) {
+  .property-card img {
+    height: 180px;
+  }
+
+  .card-body h5 {
+    font-size: 16px;    
+  }
+}
+
+.price-card {
+  color: #ff1010;
+}
+
+.buy-sale {
+  font-weight: 200;
+}
+.sale-buy-section{
+        letter-spacing: 6px;
+}
+.view{
+    background-color: #ff1e1e;
+    color: #fff;
+    /* letter-spacing: 1px; */
+    font-weight: bolder;
+}
+.view:hover{
+    background-color: rgba(241, 42, 42, 0.7);
+    color: #fff;
+}

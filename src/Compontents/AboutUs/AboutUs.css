@@ -1,0 +1,14 @@
+.image__about{
+    width: 35vw;
+}
+.hello{
+    color: rgb(75, 74, 74) !important;
+    padding-bottom:5rem !important;
+}
+span{
+    color: #ff1e1e;
+    padding-right: 15px;
+}
+.image__about:hover{
+    box-shadow: 0px 15px 15px rgb(26, 26, 26, 0.2);
+}

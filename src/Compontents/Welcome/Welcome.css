@@ -1,0 +1,51 @@
+.hero-section-welcom {
+  position: relative;
+  height: 100vh; 
+  background: url("../../assets/welcome.avif") no-repeat center center/cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+.explor{
+  background-color: #ff1e1e;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.title_exclusive{
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+.explor:hover{
+  background-color: rgba(220, 50, 50, 0.7);
+}

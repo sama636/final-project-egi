@@ -1,0 +1,52 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.error-input {
+  border: 1px solid #ff0101;
+}
+
+.error-text {
+  color: #ff0101;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.search-btn {
+  top: 10px;
+    right: 365px;
+    position: relative;
+    background: #ff0101;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}

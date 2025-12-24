@@ -1,0 +1,18 @@
+.team-card {
+  transition: 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.whatsapp{
+      background-color: #ff0f0f;
+    border: 0;
+
+}
+.whatsapp:hover{
+      background-color: #ff0f0f;
+    border: 0;
+    color: #fff !important;
+}
