@@ -27,7 +27,7 @@ export default function Cards() {
         "https://static.wixstatic.com/media/84770f_461a280a171041da95705f2f064c9afc~mv2_d_6272_4181_s_4_2.jpeg/v1/fill/w_348,h_208,al_c,q_80,enc_avif,quality_auto/Image-place-holder.jpeg",
         "https://static.wixstatic.com/media/84770f_ab580106fc944e1cb9b2bdeca3a1296c~mv2_d_2917_1843_s_2.jpeg/v1/fill/w_348,h_208,al_c,q_80,enc_avif,quality_auto/Image-place-holder.jpeg",
       ],
-      label: "BUY",
+      label: "RENT",
       title: "22043 Columbus Avenue",
       address: "San Francisco, CA, USA",
       price: "850,000",
