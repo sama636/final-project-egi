@@ -3,6 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import "./CardsTeam.css";
 import TeamAPI from "../../API/Profile/Team";
 import { useNavigate } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
 
 export default function CardsTeam() {
   const [loading, setLoading] = useState(false);
@@ -14,9 +15,14 @@ export default function CardsTeam() {
     TeamAPI(setLoading, setError, setTeamMembers, navigate);
   }, [navigate]);
 
-  if (loading) return <p className="text-center">Loading...</p>;
+  if (loading)
+    return (
+      <p className="text-center pt-2">
+        <BeatLoader />
+      </p>
+    );
   if (error) return <p className="text-center text-danger">{error}</p>;
-  console.log(teamMembers,"teamMembers")
+  console.log(teamMembers, "teamMembers");
   return (
     <div className="container my-5">
       <div className="row">
@@ -28,13 +34,21 @@ export default function CardsTeam() {
                   src={member?.image?.url || "https://via.placeholder.com/200"}
                   alt={member.name}
                   className="card-img-top rounded-circle mx-auto"
-                  style={{ width: "200px", height: "200px", objectFit: "cover" }}
+                  style={{
+                    width: "200px",
+                    height: "200px",
+                    objectFit: "cover",
+                  }}
                 />
                 <div className="card-body">
                   <h5 className="fw-bold">{member.name}</h5>
                   <p className="text-muted">Realtor #{member.realtorId}</p>
-                  <p><strong>Email:</strong> {member.email}</p>
-                  <p><strong>Phone:</strong> {member.phone}</p>
+                  <p>
+                    <strong>Email:</strong> {member.email}
+                  </p>
+                  <p>
+                    <strong>Phone:</strong> {member.phone}
+                  </p>
                   <a
                     href={`https://wa.me/${member.phone}`}
                     target="_blank"

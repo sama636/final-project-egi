@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CardsBuy.css";
 import Buy from "../../API/Buy/BuyApi";
+import { BeatLoader } from "react-spinners";
 
 export default function CardsBuy() {
   const [properties, setProperties] = useState([]);
@@ -27,7 +28,12 @@ export default function CardsBuy() {
     arrows: false,
   };
 
-  if (loading) return <p className="text-center">Loading...</p>;
+  if (loading)
+    return (
+      <p className="text-center pt-2">
+        <BeatLoader />
+      </p>
+    );
   if (error) return <p className="text-center text-danger">{error}</p>;
 
   return (

@@ -12,7 +12,6 @@ const RegisterAPI = async (setloading, setError, data, nagivate) => {
         });
 
         const result = await response.json();
-        // status 201
         if (response.ok) {
             setloading(false);
             nagivate('/login');
@@ -22,7 +21,6 @@ const RegisterAPI = async (setloading, setError, data, nagivate) => {
                 setloading(false);
                 console.log(result.message);
             }
-            // server error 500
             else if (response.status == 500) {
                 console.log(result.message);
                 setError(result.message)
