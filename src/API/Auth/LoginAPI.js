@@ -22,10 +22,8 @@ const LoginAPI = async (setloading, setError, data, nagivate) => {
             if (response.status == 400) {
                 setError(result.message)
                 setloading(false);
-                console.log(result.message);
             }
             else if (response.status == 500) {
-                console.log(result.message);
                 setError(result.message)
             }
             setloading(false)
@@ -33,7 +31,6 @@ const LoginAPI = async (setloading, setError, data, nagivate) => {
     } catch (error) {
         setError('An error occurred');
         setloading(false)
-        console.log(error);
 
     }
 }

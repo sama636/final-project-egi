@@ -11,15 +11,17 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="navbar px-4">
-        <span className="icon">
-          <img className="appLogo" src={Luxurylogo} />
-        </span>
+      <span className="icon">
+        <Link to="/">
+          <img className="appLogo" src={Luxurylogo} alt="Logo" />
+        </Link>
+      </span>
 
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <IoClose /> : <FiAlignLeft />}
       </div>
 
-      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+      <ul className={`nav-links  ${menuOpen ? "open" : ""}`}>
         <li className={location.pathname === "/" ? "active" : ""}>
           <Link to="/" onClick={() => setMenuOpen(false)}>
             Home

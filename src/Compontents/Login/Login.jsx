@@ -8,7 +8,7 @@ export default function Login() {
   const nagivate = useNavigate();
   const [loading, setloaing] = useState(false);
   const [error, setError] = useState(null);
-  const [email, setEmail] = useState(""); // data type is string as text "ZeyadAhmed@gmail.com"
+  const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState("");
   const LoginApi = () => {
     const data = {
@@ -23,7 +23,7 @@ export default function Login() {
         <div className="row g-4 flex-column align-content-center flex-md-row align-items-stretch">
           <div className="col-10 col-md-6">
             <div className="h-100">
-              <img className="Photo rounded-1 h-100" src={logo} />
+              <img className="con rounded-1 h-100" src={logo} />
             </div>
           </div>
           <div className="col-10 col-md-6">

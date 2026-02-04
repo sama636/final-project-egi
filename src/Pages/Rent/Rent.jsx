@@ -7,9 +7,9 @@ export default function Rent() {
   return (
     <div>
 <HeroSectionRent/>
-{/* <div className="container my-5">
+<div className="container my-5">
       <Filter/>
-    </div> */}
+    </div>
 <CardsRent/>
     </div>
   )

@@ -7,9 +7,9 @@ export default function Buy() {
     <div>
       
       <HeroSectionBuy/>
-      {/* <div className="container my-5">
+      <div className="container my-5">
       <Filter/>
-    </div> */}
+    </div>
       <CardsBuy/>
     </div>
   )

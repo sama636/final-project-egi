@@ -29,7 +29,7 @@ export default function CardsRent() {
     arrows: false,
   };
 
-  if (loading) return <p className="text-center pt-2"><BeatLoader /></p>;
+  if (loading) return <p className="text-center loader pt-2"><BeatLoader /></p>;
   if (error) return <p className="text-center text-danger">{error}</p>;
 
   return (

@@ -14,15 +14,13 @@ const RegisterAPI = async (setloading, setError, data, nagivate) => {
         const result = await response.json();
         if (response.ok) {
             setloading(false);
-            nagivate('/login');
+            nagivate('/');
         } else {
             if (response.status == 400) {
                 setError(result.message)
                 setloading(false);
-                console.log(result.message);
             }
             else if (response.status == 500) {
-                console.log(result.message);
                 setError(result.message)
             }
             setloading(false)
@@ -30,7 +28,6 @@ const RegisterAPI = async (setloading, setError, data, nagivate) => {
     } catch (error) {
         setError('An error occurred');
         setloading(false)
-        console.log(error);
 
     }
 }

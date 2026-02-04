@@ -17,12 +17,11 @@ export default function CardsTeam() {
 
   if (loading)
     return (
-      <p className="text-center pt-2">
+      <p className="text-center loader pt-2">
         <BeatLoader />
       </p>
     );
   if (error) return <p className="text-center text-danger">{error}</p>;
-  console.log(teamMembers, "teamMembers");
   return (
     <div className="container my-5">
       <div className="row">

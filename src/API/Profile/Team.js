@@ -20,7 +20,7 @@ const TeamAPI = async (setLoading, setError, setTeamMembers, navigate) => {
 
     if (response.status === 401) {
       localStorage.removeItem("token"); 
-      navigate("/login");
+      navigate("/team");
       return;
     }
 

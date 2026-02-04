@@ -50,7 +50,6 @@ const Filter = () => {
 
     if (Object.keys(newErrors).length === 0) {
       setSubmitted(true);
-      console.log("Filters submitted:", filters);
     } else {
       setSubmitted(false);
     }

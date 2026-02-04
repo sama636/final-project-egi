@@ -12,6 +12,10 @@ import "./App.css";
 import Register from "./Compontents/Register/Register";
 import Login from "./Compontents/Login/Login";
 import About from "./Pages/About/About";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import EditData from "./Pages/EditData/EditData";
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,9 +39,9 @@ function App() {
       behavior: "smooth",
     });
   };
-  // clone project
   return (
     <>
+     <ToastContainer position="top-right" />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -48,6 +52,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/edit" element={<EditData />} />
 
       </Routes>
       <Footer />

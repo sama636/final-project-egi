@@ -3,7 +3,7 @@ import "./HeroSectionRent.css";
 
 export default function HeroSectionRent() {
   return (
-    <section className="hero-section">
+    <section className="hero-section-rent">
       <div className="overlay">
         <div className="hero-content text-center">
           <h5 className="sub-title">OUR EXCLUSIVE PROPERTIES</h5>

@@ -1,13 +1,14 @@
-.hero-section {
+.hero-section-rent {
   position: relative;
-  height: 60vh; 
-  /* background: url("https://static.wixstatic.com/media/82fcd3_7074b1dcfa364fd9a597a3e573ddc7dd~mv2_d_3000_2000_s_2.jpg/v1/fill/w_1336,h_250,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/82fcd3_7074b1dcfa364fd9a597a3e573ddc7dd~mv2_d_3000_2000_s_2.jpg") center/cover no-repeat; */
+  height: 80vh; 
+  background: url("https://images.unsplash.com/photo-1635108200313-40f75b86bc94?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fHJlYWxlc3RhdGV8ZW58MHx8MHx8fDA%3D") no-repeat center center;
+  background-size: cover; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.hero-section .overlay {
+.hero-section-rent .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,6 +23,7 @@
 .hero-content {
   color: #fff;
   z-index: 2;
+  text-align: center;
 }
 
 .sub-title {

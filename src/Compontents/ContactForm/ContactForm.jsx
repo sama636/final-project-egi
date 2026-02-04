@@ -1,52 +1,37 @@
 import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ContactForm.css"; 
 import logo from "../../assets/logo.png";
 import ContactAPI from "../../API/Contact/ContactApi";
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
 
-  const [errors, setErrors] = useState({});
+export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setError] = useState("");
   const [successMsg, setSuccess] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const validationSchema = Yup.object().shape({
+    fullName: Yup.string().required("Full name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    phone: Yup.string()
+      .matches(/^[0-9]{10,15}$/, "Enter valid phone number")
+      .required("Phone is required"),
+    message: Yup.string().required("Message is required"),
+  });
 
-  const validate = () => {
-    let newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email address";
-    }
-    if (!formData.phone) {
-      newErrors.phone = "Phone is required";
-    } else if (!/^[0-9]{10,15}$/.test(formData.phone)) {
-      newErrors.phone = "Enter valid phone number";
-    }
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+ const handleSubmit = async (values, { resetForm }) => {
+  setLoading(true);
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  await ContactAPI(values);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validate()) {
-      await ContactAPI(setLoading, setError, setSuccess, formData);
-    }
-  };
+  toast.success("Message sent successfully ");
+  resetForm();
+  setLoading(false);
+};
 
   return (
     <div className="container my-5">
@@ -61,58 +46,93 @@ export default function ContactForm() {
           {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
           {successMsg && <div className="alert alert-success">{successMsg}</div>}
 
-          <form onSubmit={handleSubmit} noValidate>
-              <div className=" mb-3">
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full Name *"
-                  className={`form-control custom-input ${errors.fullName ? "is-invalid" : ""}`}
-                  value={formData.fullName}
-                  onChange={handleChange}
-                />
-                <div className="invalid-feedback">{errors.fullName}</div>
-              </div>
-            <div className="mb-3">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address *"
-                className={`form-control custom-input ${errors.email ? "is-invalid" : ""}`}
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <div className="invalid-feedback">{errors.email}</div>
-            </div>
+          <Formik
+            initialValues={{
+              fullName: "",
+              email: "",
+              phone: "",
+              message: "",
+            }}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ errors, touched, isSubmitting }) => (
+              <Form noValidate>
+                <div className="mb-3">
+                  <Field
+                    type="text"
+                    name="fullName"
+                    placeholder="Full Name *"
+                    className={`form-control custom-input ${
+                      errors.fullName && touched.fullName ? "is-invalid" : ""
+                    }`}
+                  />
+                  <ErrorMessage
+                    name="fullName"
+                    component="div"
+                    className="invalid-feedback"
+                  />
+                </div>
 
-            <div className="mb-3">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone *"
-                className={`form-control custom-input ${errors.phone ? "is-invalid" : ""}`}
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              <div className="invalid-feedback">{errors.phone}</div>
-            </div>
+                <div className="mb-3">
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email Address *"
+                    className={`form-control custom-input ${
+                      errors.email && touched.email ? "is-invalid" : ""
+                    }`}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="invalid-feedback"
+                  />
+                </div>
 
-            <div className="mb-3">
-              <textarea
-                name="message"
-                placeholder="Message *"
-                className={`form-control custom-textarea ${errors.message ? "is-invalid" : ""}`}
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-              <div className="invalid-feedback">{errors.message}</div>
-            </div>
+                <div className="mb-3">
+                  <Field
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone *"
+                    className={`form-control custom-input ${
+                      errors.phone && touched.phone ? "is-invalid" : ""
+                    }`}
+                  />
+                  <ErrorMessage
+                    name="phone"
+                    component="div"
+                    className="invalid-feedback"
+                  />
+                </div>
 
-            <button type="submit" className="btn btn-dark custom-btn" disabled={loading}>
-              {loading ? "Sending..." : "SUBMIT"}
-            </button>
-          </form>
+                <div className="mb-3">
+                  <Field
+                    as="textarea"
+                    name="message"
+                    placeholder="Message *"
+                    rows="4"
+                    className={`form-control custom-textarea ${
+                      errors.message && touched.message ? "is-invalid" : ""
+                    }`}
+                  />
+                  <ErrorMessage
+                    name="message"
+                    component="div"
+                    className="invalid-feedback"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn btn-dark custom-btn"
+                  disabled={isSubmitting || loading}
+                >
+                  {loading ? "Sending..." : "SUBMIT"}
+                </button>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>

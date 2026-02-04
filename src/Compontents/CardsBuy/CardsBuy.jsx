@@ -30,7 +30,7 @@ export default function CardsBuy() {
 
   if (loading)
     return (
-      <p className="text-center pt-2">
+      <p className="loader text-center pt-2">
         <BeatLoader />
       </p>
     );

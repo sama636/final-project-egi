@@ -7,25 +7,17 @@ import Cookies from "js-cookie";
 import useAuthStore from "../../Store/authStore";
 import RegisterAPI from "../../API/Auth/RegisterAPI";
 import { useNavigate } from "react-router";
+
+
 export default function Register() {
-  // const { authData, setAuthData } = useAuthStore();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const [role, setRole] = useState("");
+  // const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const nagivate = useNavigate();
-  // function RegisterAccount(data) {
-  //   delete data.confirmpassword;
-  //   console.log(data);
-  //   axios.post("https://luxury-real-estate-tawny.vercel.app/register", data, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  // }
 
   const RegisterApi = () => {
     const data = {
@@ -33,12 +25,10 @@ export default function Register() {
       email,
       password,
       phone,
-      role,
     };
     RegisterAPI(setLoading, setError, data, nagivate);
   };
 
-  console.log(fullName);
 
   return (
     <div className="container pt-5 my-4">
@@ -54,7 +44,6 @@ export default function Register() {
             initialValues={{
               email: "",
               name: "",
-              role: "Member",
               confirmpassword: "",
               password: "",
             }}
@@ -128,22 +117,6 @@ export default function Register() {
                   />
                 </div>
 
-                <div className="mb-3">
-                  <label>Role</label>
-                  <select
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  >
-                    <option value="Choose Role">Choose Role</option>
-                    <option value="user">user</option>
-                  </select>
-                  <ErrorMessage
-                    name="role"
-                    component="div"
-                    className="text-danger small"
-                  />
-                </div>
-
                 <button
                   type="submit"
                   className="btn sign-btn w-100"
@@ -155,7 +128,10 @@ export default function Register() {
               </div>
             )}
           </Formik>
+         
+
         </div>
+
       </div>
     </div>
   );

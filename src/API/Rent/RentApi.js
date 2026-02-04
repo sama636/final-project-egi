@@ -6,7 +6,7 @@ const RentAPIWithAuth = async (setLoading, setError, setProperties, navigate) =>
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/login"); 
+      navigate("/buy"); 
       return;
     }
 
@@ -20,7 +20,7 @@ const RentAPIWithAuth = async (setLoading, setError, setProperties, navigate) =>
 
     if (response.status === 401) {
       localStorage.removeItem("token"); 
-      navigate("/login");
+      navigate("/buy");
       return;
     }
 
